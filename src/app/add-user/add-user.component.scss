@@ -1,0 +1,82 @@
+*{
+    margin :0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+$font-color : white;
+.container{
+    display: flex;
+    width :80%;
+    height:50%;
+    background-color:#ebe8e8;
+}
+.div1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    margin: 1rem;
+    gap:1rem;
+     div{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    input{
+        padding: 5px;
+        width: 26rem;
+    }
+    
+}
+.skill-div{
+    display: flex;
+
+    flex-direction: column;
+}
+.skill-ex{
+    display: flex;
+    gap:10px;
+}
+.form-containers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group > div {
+  flex-basis: 48%;
+}
+
+.skill-ex {
+  display: flex;
+
+}
+
+.gender-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+label {
+  margin-right: 5px;
+}
+.add-button {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color:#1fa925;
+}
+.submit-button {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color:rgb(0 126 255);
+}
+
+
