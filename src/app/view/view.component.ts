@@ -31,6 +31,7 @@ export class ViewComponent {
     this.skills = this.empForm.get('skills') as FormArray;
     
   }
+
   // Edit all existing skills from the
   editStatus : boolean = false;
   editDetails(index: number) {
@@ -59,6 +60,7 @@ export class ViewComponent {
     }
   }
   
+ 
   
   addSkill() {
     this.skills.push(
