@@ -1,0 +1,169 @@
+.modal {
+    display: block;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+/*View -table css*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  
+  
+// Edit Form css
+.form-container{
+    display: flex;
+    width :80%;
+    height:50%;
+    background-color:#888;
+}
+.div1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    margin: 1rem;
+    gap:1rem;
+     div{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    input{
+        padding: 5px;
+        width: 26rem;
+    }
+    
+}
+.skill-div{
+    display: flex;
+
+    flex-direction: column;
+}
+.skill-ex{
+    display: flex;
+    gap:10px;
+}
+.form-containers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group > div {
+  flex-basis: 48%;
+}
+
+.skill-ex {
+  display: flex;
+
+}
+
+.gender-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+label {
+  margin-right: 5px;
+}
+
+.update-button {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color:rgb(0 126 255);
+  color:white
+}
+// This css for Add  user button
+nav{
+    display: block;
+    float: right;
+    button{
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color:rgb(0 126 255);
+        color: white;
+    }
+}
+.add-button {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color:#1fa925;
+    color:white
+  }
+

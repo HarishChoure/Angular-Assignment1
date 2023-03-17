@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <button (click)="navigateAdd()">Add User</button>
+      </ul>
+    </nav>
+    <ng-container
+ *ngIf="!editStatus" >
+    <h1>User List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Number</th>
+          <th>Gender</th>
+          <th>Skills</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let users of user; let i = index">
+          <!-- <td>{{users | json}}</td> -->
+          <td>{{ users.e_id }}</td>
+          <td>{{ users.e_name }}</td>
+          <td>{{ users.e_email }}</td>
+          <td>{{ users.e_num }}</td>
+          <td>{{ users.e_gender }}</td>
+          <td>
+          <div *ngFor="let item of users.e_skills">
+            {{ item.skill }}
+            {{ item.experience }}
+          </div>
+          </td>
+          <td>
+          <button (click)="editDetails(i)"><i class="fa-solid fa-pen"></i></button>
+          <button (click)="deleteEmployee(i, users.e_name)"><i class="fa-solid fa-trash"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
+    </ng-container>
+<!-- Edit Form -->
+<ng-container
+ *ngIf="editStatus" >
+    <h1>Edit Form</h1>
+
+    <div class="form-container">
+      
+      <form [formGroup]="empForm" (ngSubmit)="onUpdate()">
+        <div class="div1">
+          <div>
+            <label for="eId">Employee Id: </label>
+            <input
+              type="text"
+              id="eId"
+              formControlName="e_id"
+              placeholder="Enter Id"
+            />
+          </div>
+          <div>
+            <label for="empName">Name: </label>
+            <input
+              type="text"
+              id="empName"
+              formControlName="e_name"
+              placeholder="Enter Name"
+            />
+          </div>
+        </div>
+        <div class="div1">
+          <div>
+            <label for="num">Contact number : </label>
+            <input
+              type="number"
+              id="num"
+              formControlName="e_num"
+              placeholder="Enter contact number"
+            />
+          </div>
+          <div>
+            <label for="email">Email : </label>
+            <input
+              type="email"
+              id="email"
+              formControlName="e_email"
+              placeholder="Enter Email"
+            />
+          </div>
+        </div>
+        <div class="form-containers">
+          <div class="form-group">
+            <div formArrayName="skills">
+              <!-- skill and Experience Div -->
+              <div class="skill-ex">
+                <label for="skils">Skills:</label>
+                <div>
+                  <button type="button" (click)="addSkill()" class="add-button">Add</button>
+                </div>
+                <ng-container *ngFor="let skill of skills.controls; index as i">
+                  <div [formGroupName]="i" class="skill-div">
+                    <div class="skill">
+                      <input
+                        type="text"
+                        placeholder="Enter skill name"
+                        formControlName="skill"
+                      />
+                    </div>
+
+                    <div class="experience">
+                      <select formControlName="experience">
+                        <option value="" disabled selected hidden>
+                          Select experience
+                        </option>
+                        <option value="fresher">Fresher</option>
+                        <option value="1 year">1 year</option>
+                        <option value="2 year">2 year</option>
+                        <option value="3 year">3 year</option>
+                        <option value="4 year">4 year</option>
+                        <option value="5 year">5 year</option>
+                      </select>
+                    </div>
+                    <button *ngIf="skills.length > 1" (click)="deleteSkills(i)">
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gender Div -->
+        <div class="gender-div">
+          <label for="gender">Gender:</label>
+          <div>
+            <input
+              type="radio"
+              id="male"
+              value="male"
+              formControlName="gender"
+            />
+            <label for="male">Male</label>
+            <input
+              type="radio"
+              id="female"
+              value="female"
+              formControlName="gender"
+            />
+            <label for="female">Female</label>
+          </div>
+        </div>
+
+        <button class="update-button">Update</button>
+      </form>
+     </div>
+     </ng-container>
+
+      <!-- Delete itme confirmation code -->
+    
+    <div *ngIf="showConfirmation" id="myModal" class="modal">
+      <div class="modal-content">
+        <p>Are you sure you want to delete {{ employeeNameToDelete }} ?</p>
+        <button (click)="confirmDelete()">Yes</button>
+        <button (click)="cancelDelete()">No</button>
+      </div>
+    </div>
+
+    <div *ngIf="showSuccess" id="myModal" class="modal">
+      <div class="modal-content">{{ successMessage }}</div>
+    </div>
+  </body>
+</html>
