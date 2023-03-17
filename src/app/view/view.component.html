@@ -50,7 +50,9 @@
 <ng-container
  *ngIf="editStatus" >
     <h1>Edit Form</h1>
+  
     <div class="form-container">
+
       <form [formGroup]="empForm" (ngSubmit)="onUpdate()">
         <div class="div1">
           <div>

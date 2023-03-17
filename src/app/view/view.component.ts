@@ -31,14 +31,15 @@ export class ViewComponent {
     this.skills = this.empForm.get('skills') as FormArray;
     
   }
+
+  // Edit all existing skills from the
   editStatus : boolean = false;
   editDetails(index: number) {
     this.editStatus = true;
     const upd_user = this.user[index];
-    if (this.skills.length > 0) {
-      for (let i = 1; i < this.skills.length; i++) {
-        this.skills.removeAt(i);
-      }
+     FormArray
+    while (this.skills.length !== 0) {
+      this.skills.removeAt(0);
     }
     this.empForm.patchValue({
       e_id:     upd_user.e_id,
@@ -58,6 +59,8 @@ export class ViewComponent {
       });
     }
   }
+  
+ 
   
   addSkill() {
     this.skills.push(
